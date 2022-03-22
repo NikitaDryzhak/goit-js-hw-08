@@ -2,8 +2,7 @@ import throttle from 'lodash.throttle';
 
 
 const form = document.querySelector('.feedback-form');
-const email = document.querySelector('.email');
-const message = document.querySelector('.message');
+
 
 form.addEventListener('input', throttle(inputText, 500))
 form.addEventListener('submit', submitForm)
@@ -19,6 +18,12 @@ function inputText(e) {
 }
 function submitForm(e) {
     e.preventDefault()
+    const mail = form.elements.email.value;
+    const message = form.elements.message.value;
+    if (mail == '' || message == '') {
+        alert('Fill the form')
+        return
+    }
     e.target.reset()
     localStorage.removeItem('feedback-form-state')
     console.log(data)

@@ -18,7 +18,6 @@ player.setCurrentTime(actualVideoTime).then(function(seconds) {
     switch (error.name) {
         case 'RangeError':
             break;
-
         default:
             break;
     }
